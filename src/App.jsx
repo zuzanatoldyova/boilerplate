@@ -48,7 +48,6 @@ class App extends Component {
     if (event.key === "Enter") {
       const newName = event.target.value;
       const message = {
-
         type: "postNotification",
         content: `${this.state.currentUser.name} changed their name to ${newName}.`
       }
@@ -68,9 +67,13 @@ class App extends Component {
       const data = JSON.parse(event.data);
       if (data.connections) {
         this.setState({connections: data.connections});
-      } else {
-        this.setState({messages: this.state.messages.concat(data)});
+        return;
       }
+      if (data.message) {
+        this.setState({messages: this.state.messages.concat(data.message)});
+        return;
+      }
+      throw new Error("Unknown event type " + data.type);
     }
 
   }

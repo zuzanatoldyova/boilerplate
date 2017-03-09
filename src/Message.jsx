@@ -10,8 +10,9 @@ class Message extends Component {
     return (
       <div className={`message ${this.props.className}`}>
         { this.props.message.username && <span style={{"color": this.props.message.color}} className="message-username">{this.props.message.username}</span> }
-        <span className="message-content">{this.props.message.content} <img className="resize" src={this.props.message.url}></img></span>
-
+        <span className="message-content"> {this.props.message.content} <br />
+          { this.props.message.url && <img className="resize" src={this.props.message.url} />}
+        </span>
       </div>
     );
   }
