@@ -83,3 +83,17 @@ body {
       padding: 0 10px;
       text-decoration: none;
     }
+
+    .navbar-connections{
+      float: right;
+      margin: 0;
+      padding: 0 10px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  img.resize {
+    max-width: 60%;
+    max-height: auto;
+  }

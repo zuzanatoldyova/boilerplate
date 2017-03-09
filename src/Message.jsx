@@ -9,8 +9,9 @@ class Message extends Component {
   render() {
     return (
       <div className={`message ${this.props.className}`}>
-        <span className="message-username">{this.props.message.username}</span>
-        <span className="message-content">{this.props.message.content}</span>
+        { this.props.message.username && <span style={{"color": this.props.message.color}} className="message-username">{this.props.message.username}</span> }
+        <span className="message-content">{this.props.message.content} <img className="resize" src={this.props.message.url}></img></span>
+
       </div>
     );
   }
