@@ -47,12 +47,14 @@ class App extends Component {
   handleName(event) {
     if (event.key === "Enter") {
       const newName = event.target.value;
-      const message = {
-        type: "postNotification",
-        content: `${this.state.currentUser.name} changed their name to ${newName}.`
+      if (newName !== this.state.currentUser.name) {
+        const message = {
+          type: "postNotification",
+          content: `${this.state.currentUser.name} changed their name to ${newName}.`
+        }
+        this.sendUpdate(this.socket, message);
+        this.setState({currentUser: {name: newName}});
       }
-      this.sendUpdate(this.socket, message);
-      this.setState({currentUser: {name: newName}});
     }
   }
 
