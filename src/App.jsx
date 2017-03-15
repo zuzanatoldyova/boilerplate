@@ -18,7 +18,7 @@ class App extends Component {
     this.handleMessage = this.handleMessage.bind(this);
     this.handleName = this.handleName.bind(this);
     this.sendUpdate = this.sendUpdate.bind(this);
-    this.getRandomColor = this.getRandomColor.bind(this);
+
   }
 
   getRandomColor() {
@@ -86,7 +86,7 @@ class App extends Component {
       <div>
         <nav className="navbar">
           <a href="/" className="navbar-brand">Chatty</a>
-          <p className="navbar-connections"> {`${this.state.connections}`} users online</p>
+          <p className="navbar-connections"> {this.state.connections} users online</p>
         </nav>
         <MessageList messages = {this.state.messages} />
         <ChatBar currentUser = {this.state.currentUser} onEnterMessage = {this.handleMessage} onEnterName = {this.handleName}/>
